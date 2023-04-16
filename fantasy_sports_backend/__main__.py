@@ -1,4 +1,4 @@
-"""Entry point for project_name."""
+"""Entry point for fantasy_sports_backend."""
 
 from .cli import main  # pragma: no cover
 
