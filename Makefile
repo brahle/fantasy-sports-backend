@@ -27,19 +27,19 @@ install:          ## Install the project in dev mode.
 .PHONY: fmt
 fmt:              ## Format code using black & isort.
 	$(ENV_PREFIX)isort fantasy_sports_backend/
-	$(ENV_PREFIX)black -l 79 fantasy_sports_backend/
-	$(ENV_PREFIX)black -l 79 tests/
+	$(ENV_PREFIX)black -l 119 fantasy_sports_backend/
+	$(ENV_PREFIX)black -l 119 tests/
 
 .PHONY: lint
 lint:             ## Run pep8, black, mypy linters.
-	$(ENV_PREFIX)flake8 fantasy_sports_backend/
-	$(ENV_PREFIX)black -l 79 --check fantasy_sports_backend/
-	$(ENV_PREFIX)black -l 79 --check tests/
+	$(ENV_PREFIX)flake8 --max-line-length 120 fantasy_sports_backend/
+	$(ENV_PREFIX)black -l 119 --check fantasy_sports_backend/
+	$(ENV_PREFIX)black -l 119 --check tests/
 	$(ENV_PREFIX)mypy --ignore-missing-imports fantasy_sports_backend/
 
 .PHONY: test
 test: lint        ## Run tests and generate coverage report.
-	$(ENV_PREFIX)pytest -v -l --tb=short --doctest-modules --maxfail=1 tests/ brds/
+	$(ENV_PREFIX)pytest -v -l --tb=short --doctest-modules --maxfail=1 tests/ fantasy_sports_backend/
 
 .PHONY: watch
 watch:            ## Run tests on every change.

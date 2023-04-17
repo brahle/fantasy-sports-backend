@@ -21,9 +21,7 @@ def fetch_league_score_history(league_id: int) -> List[List[Dict[str, Any]]]:
     entries = fload(api_urls.league_details_file)["league_entries"]
     fetch(*[api_urls.entry_history(entry["entry_id"]) for entry in entries])
 
-    data_history = [
-        load_entry_history(api_urls, entry["entry_id"]) for entry in entries
-    ]
+    data_history = [load_entry_history(api_urls, entry["entry_id"]) for entry in entries]
 
     score_history: List[List[Dict[str, Any]]] = []
     for week, _ in enumerate(data_history[0].history):
@@ -48,9 +46,7 @@ def fetch_league_score_history(league_id: int) -> List[List[Dict[str, Any]]]:
 def load_entry_history(api_urls: ApiUrls, entry_id: int) -> Data:
     file_name = api_urls.entry_history_file(entry_id)
     data = fload(file_name)
-    history_objects = [
-        History(**history_item) for history_item in data["history"]
-    ]
+    history_objects = [History(**history_item) for history_item in data["history"]]
     entry_object = Entry(**data["entry"])
     return Data(history=history_objects, entry=entry_object)
 
