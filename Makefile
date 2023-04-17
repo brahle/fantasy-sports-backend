@@ -39,9 +39,7 @@ lint:             ## Run pep8, black, mypy linters.
 
 .PHONY: test
 test: lint        ## Run tests and generate coverage report.
-	$(ENV_PREFIX)pytest -v --cov-config .coveragerc --cov=fantasy_sports_backend -l --tb=short --maxfail=1 tests/
-	$(ENV_PREFIX)coverage xml
-	$(ENV_PREFIX)coverage html
+	$(ENV_PREFIX)pytest -v -l --tb=short --doctest-modules --maxfail=1 tests/ brds/
 
 .PHONY: watch
 watch:            ## Run tests on every change.
