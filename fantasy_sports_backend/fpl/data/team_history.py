@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List, Any
+from typing import Any, List
 
 
 @dataclass
@@ -13,6 +13,7 @@ class History:
     points_on_bench: int
     entry: int
     event: int
+
 
 @dataclass
 class Entry:
@@ -30,6 +31,7 @@ class Entry:
     started_event: int
     transactions_event: int
     transactions_total: int
+
 
 @dataclass
 class Data:

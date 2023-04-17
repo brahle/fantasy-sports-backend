@@ -2,10 +2,9 @@ from os import environ
 from typing import Any, Optional, Type, TypeVar
 
 from brds import Importer
-from requests import session, Response
+from requests import Response, session
 from requests.exceptions import HTTPError
 from requests.sessions import Session
-
 
 T = TypeVar("T", bound="FantasyPremierLeagueImporter")
 
